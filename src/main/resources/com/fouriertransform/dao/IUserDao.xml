@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fouriertransform.dao.IUserDao">
+    <select id="findAll" resultType="com.fouriertransform.domain.User">
+        select * from user;
+    </select>
+    
+    <insert id="saveUser" parameterType="com.fouriertransform.domain.User">
+        insert into user(username, address, sex, birthday) values(#{username}, #{address}, #{sex}, #{birthday});
+    </insert>
+
+    <update id="updateUser" parameterType="com.fouriertransform.domain.User">
+        update user set username=#{username}, address=#{address}, sex=#{sex}, birthday=#{birthday} where id = #{id};
+    </update>
+</mapper>
